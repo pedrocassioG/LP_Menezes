@@ -305,11 +305,38 @@ footer {
         order: 2 !important; /* Garante que a imagem fique DEPOIS do texto */
     }
 
-    /* Garante que o texto fique em cima */
-    .hero-content {
+   .hero-content {
+        text-align: center !important; /* Centraliza textos soltos */
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important; /* Centraliza blocos (botão, badges div) */
         width: 100% !important;
-        min-width: unset !important; /* Remove aquela trava de 300px que causava o bug */
-        order: 1 !important;
+    }
+
+    /* 1. Centralizar o texto laranjinha do topo ("Masterclass Gratuita") */
+    .hero-content span {
+        display: block !important; /* Transforma em bloco para aceitar centralização */
+        width: 100% !important;
+        text-align: center !important;
+    }
+
+    /* 2. Centralizar os parágrafos */
+    .hero-content p {
+        text-align: center !important;
+    }
+
+    /* 3. Centralizar os Badges (Data/Hora) */
+    .badges {
+        display: flex !important;
+        justify-content: center !important; /* Alinha os itens no centro da linha */
+        width: 100% !important;
+        gap: 15px !important;
+    }
+
+    /* 4. Centralizar o Botão Grande */
+    .btn-destaque-grande {
+        margin: 0 auto !important; /* Garante margem automática nas laterais */
+        display: inline-block !important; /* Comporta-se como bloco centralizável */
     }
 
     /* ... resto do código ... */
