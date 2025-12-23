@@ -1,0 +1,329 @@
+/* Importando uma fonte moderna do Google Fonts (Inter) parecida com a da imagem */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+:root {
+    /* --- CORES --- */
+    /* Aquele azul muito escuro de fundo */
+    --cor-fundo-principal: #020617; 
+    /* Um azul um pouco mais claro para os cards/destaques */
+    --cor-fundo-secundaria: #0f172a; 
+    /* O Laranja vibrante para Botões e Ícones */
+    --cor-destaque: #ea580c; 
+    /* Laranja um pouco mais escuro para quando passar o mouse (Hover) */
+    --cor-destaque-hover: #c2410c; 
+    
+    /* --- TEXTO --- */
+    --cor-texto-titulo: #ffffff; /* Branco puro */
+    --cor-texto-paragrafo: #94a3b8; /* Cinza azulado (muito chique em fundo escuro) */
+    
+    /* --- ESTRUTURA --- */
+    --borda-suave: 1px solid rgba(255, 255, 255, 0.1); /* Borda fina quase transparente */
+    --arredondamento: 8px; /* Cantos arredondados dos botões e cards */
+}
+
+/* Reset básico para tirar margens que vêm de fábrica no navegador */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background-color: var(--cor-fundo-principal);
+    color: var(--cor-texto-titulo);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto; /* Centraliza o conteúdo */
+    padding: 0 20px;
+}
+
+
+/* --- COMPONENTES --- */
+
+/* Estilo dos Badges (aquelas caixinhas com info de data/hora) */
+.badge {
+    background-color: var(--cor-fundo-secundaria);
+    padding: 8px 16px;
+    border-radius: var(--arredondamento);
+    border: var(--borda-suave);
+    color: var(--cor-texto-titulo);
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+/* Botão Padrão (igual "Solicite Orçamento") */
+.btn-destaque, .btn-destaque-grande {
+    background-color: var(--cor-destaque);
+    color: white;
+    padding: 12px 24px;
+    text-decoration: none;
+    border-radius: var(--arredondamento);
+    font-weight: bold;
+    display: inline-block;
+    transition: background-color 0.3s;
+}
+
+/* Botão Grande da Hero */
+.btn-destaque-grande {
+    padding: 16px 32px;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+}
+
+.btn-destaque:hover, .btn-destaque-grande:hover {
+    background-color: var(--cor-destaque-hover);
+}
+
+/* --- IMAGEM DO HERO --- */
+.img-hero-real {
+    width: 100%;           /* Tenta ocupar a largura disponível */
+    max-width: 550px;      /* Mas não passa de 550px (para não ficar gigante em telas largas) */
+    height: auto;          /* Mantém a proporção original da foto (não achata) */
+    border-radius: var(--arredondamento); /* Cantos arredondados suaves */
+    border: var(--borda-suave); /* Aquela bordinha fina transparente */
+    box-shadow: 0 20px 40px -10px rgba(0,0,0,0.5); /* Sombra suave para destacar do fundo */
+}
+
+/* --- (seção 2) --- */
+.card {
+    background-color: rgba(255, 255, 255, 0.03); /* Fundo bem sutil, quase transparente */
+    border: var(--borda-suave);
+    border-radius: var(--arredondamento);
+    padding: 25px;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+    display: flex;
+    align-items: flex-start; /* Alinha ícone e texto no topo */
+    gap: 15px;
+}
+
+/* Efeito ao passar o mouse (Hover) - O card "acende" levemente */
+.card:hover {
+    transform: translateY(-5px); /* Sobe um pouquinho */
+    border-color: var(--cor-destaque); /* Borda fica laranja */
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.card-icone {
+    font-size: 1.5rem; /* Tamanho do emoji/ícone */
+    color: var(--cor-destaque);
+    min-width: 40px; /* Garante espaço fixo para o ícone */
+}
+
+/* Título menor para dentro do card */
+.card h3 {
+    font-size: 1.1rem;
+    color: var(--cor-texto-titulo);
+    margin-bottom: 5px;
+}
+
+.card p {
+    font-size: 0.9rem;
+    color: var(--cor-texto-paragrafo);
+    line-height: 1.4;
+}
+
+/* --- (seção 3) --- */
+
+/* O Grid organiza os elementos em colunas automaticamente */
+.grid-4-colunas {
+    display: grid;
+    /* No celular: 1 coluna. No PC (min-width 768px): 2 colunas. Em telas grandes: 4 colunas. */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+    gap: 30px; /* Espaço entre os cards */
+    margin-top: 50px;
+}
+
+/* Variação do Card para ficar centralizado (Estilo "Nossos Serviços") */
+.card-centralizado {
+    background-color: rgba(255, 255, 255, 0.03);
+    border: var(--borda-suave);
+    border-radius: var(--arredondamento);
+    padding: 30px;
+    text-align: center; /* Centraliza o texto */
+    transition: transform 0.3s ease, border-color 0.3s ease;
+    
+    /* Para centralizar o ícone e o conteúdo verticalmente */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%; /* Garante que todos tenham a mesma altura */
+}
+
+.card-centralizado:hover {
+    transform: translateY(-10px);
+    border-color: var(--cor-destaque);
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* Ícone com fundo laranja (igual ao da Hidram) */
+.icone-destaque-box {
+    background-color: rgba(234, 88, 12, 0.15); /* Laranja transparente */
+    color: var(--cor-destaque);
+    width: 60px;
+    height: 60px;
+    border-radius: 8px; /* Quadrado arredondado */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+}
+
+
+/* --- SEÇÃO 4 --- */
+
+/* Ajuste no Grid para ficar centralizado se sobrarem itens */
+.grid-convidados {
+    display: grid;
+    /* Tenta encaixar colunas de no mínimo 300px */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.card-convidado {
+    background-color: var(--cor-fundo-principal); /* Um pouco mais escuro que o fundo da seção */
+    border: var(--borda-suave);
+    border-radius: var(--arredondamento);
+    padding: 20px;
+    display: flex; /* Para alinhar foto e texto lado a lado */
+    align-items: center;
+    gap: 15px;
+    transition: 0.3s ease;
+}
+
+.card-convidado:hover {
+    border-color: var(--cor-destaque);
+    transform: translateX(5px); /* Move levemente para a direita */
+}
+
+/* Bolinha para simular a foto (Avatar) */
+.avatar {
+    width: 50px;
+    height: 50px;
+    background-color: rgba(255, 255, 255, 0.1); /* Cinza transparente */
+    border-radius: 50%; /* Faz ficar redondo */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--cor-destaque);
+    font-weight: bold;
+    font-size: 1.2rem;
+    flex-shrink: 0; /* Impede a bolinha de amassar se o texto for grande */
+}
+
+/* Nome do Convidado */
+.info-convidado h4 {
+    color: white;
+    font-size: 1.1rem;
+    margin-bottom: 4px;
+}
+
+/* Especialidade */
+.info-convidado p {
+    color: var(--cor-texto-paragrafo);
+    font-size: 0.85rem;
+    margin: 0;
+}
+
+/* --- SEÇÃO FINAL (CTA) --- */
+.cta-final {
+    text-align: center;
+    background: linear-gradient(180deg, var(--cor-fundo-secundaria) 0%, var(--cor-fundo-principal) 100%);
+    border-top: var(--borda-suave);
+}
+
+.aviso-urgencia {
+    background-color: rgba(234, 88, 12, 0.1); /* Laranja bem fraquinho */
+    color: var(--cor-destaque);
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 50px; /* Borda redonda estilo "pílula" */
+    font-size: 0.9rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    border: 1px solid rgba(234, 88, 12, 0.3);
+}
+
+/* --- FOOTER (RODAPÉ) --- */
+footer {
+    background-color: #000000; /* Preto puro para finalizar */
+    padding: 40px 0;
+    text-align: center;
+    border-top: var(--borda-suave);
+}
+
+.footer-texto {
+    color: var(--cor-texto-paragrafo);
+    font-size: 0.85rem;
+    margin-top: 10px;
+}
+
+
+@media (max-width: 768px) {
+/* ... (seu código anterior de responsividade está aqui acima) ... */
+
+    /* --- AJUSTES ESPECÍFICOS DO CABEÇALHO NO MOBILE --- */
+    
+    /* 1. Diminuir o Logo apenas no celular */
+    header h2 {
+        font-size: 1.1rem !important; /* Logo fica menorzinho */
+    }
+
+    /* 2. Diminuir o Botão apenas no celular */
+    header .btn-destaque {
+        padding: 8px 12px !important; /* Borda interna menor */
+        font-size: 0.75rem !important; /* Letra menor */
+    }
+    
+    /* 3. Ajustar o espaço entre Logo e Botão */
+    header .container {
+        gap: 10px; /* Aproxima um pouco os dois */
+        justify-content: space-between; /* Garante que fiquem nos cantos */
+    }
+
+    .hero-content {
+        text-align: center !important; /* Centraliza o texto */
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Centraliza os itens (botão e badges) */
+        width: 100%;
+    }
+
+    /* Garante que o título grande obedeça */
+    .hero h1 {
+        text-align: center !important;
+    }
+    
+    /* Centraliza os badges (data/hora) */
+    .badges {
+        justify-content: center;
+    }
+
+    /* 1. Força todo o texto descritivo a centralizar */
+    .texto-wrapper {
+        text-align: center !important;
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Garante que tudo fique no meio */
+    }
+
+    /* 2. Arruma a frase final ("Não aceite ser só mais um") */
+    /* O seletor abaixo pega aquela div que tem a borda na esquerda */
+    .texto-wrapper div[style*="border-left"] {
+        border-left: none !important; /* Remove a linha lateral */
+        border-top: 3px solid var(--cor-destaque); /* Coloca uma linha em cima */
+        
+        padding-left: 0 !important;
+        padding-top: 15px; /* Espaço entre a linha e o texto */
+        margin-top: 20px;
+        
+        text-align: center !important;
+        width: 80%; /* Não ocupa a tela toda para ficar mais charmoso */
+        margin-left: auto;  /* Centraliza o bloco */
+        margin-right: auto; /* Centraliza o bloco */
+    }
+} /* <--- Aqui fecha a chave do @media */
