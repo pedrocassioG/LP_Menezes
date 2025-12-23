@@ -285,13 +285,34 @@ footer {
         justify-content: space-between; /* Garante que fiquem nos cantos */
     }
 
-    .hero-content {
-        text-align: center !important; /* Centraliza o texto */
-        display: flex;
-        flex-direction: column;
-        align-items: center; /* Centraliza os itens (botão e badges) */
-        width: 100%;
+/* ... dentro do @media (max-width: 768px) ... */
+
+    /* CORREÇÃO DO HERO (FORÇAR FICAR EMBAIXO) */
+    .hero .container {
+        /* O !important obriga a ficar em coluna, mesmo que o HTML diga o contrário */
+        flex-direction: column !important; 
+        align-items: center !important;
+        display: flex !important;
+        gap: 30px !important;
     }
+
+    /* Garante que a imagem ocupe a largura e não suma */
+    .hero-image {
+        width: 100% !important;
+        display: flex !important;
+        justify-content: center !important;
+        margin-top: 20px !important;
+        order: 2 !important; /* Garante que a imagem fique DEPOIS do texto */
+    }
+
+    /* Garante que o texto fique em cima */
+    .hero-content {
+        width: 100% !important;
+        min-width: unset !important; /* Remove aquela trava de 300px que causava o bug */
+        order: 1 !important;
+    }
+
+    /* ... resto do código ... */
 
     /* Garante que o título grande obedeça */
     .hero h1 {
